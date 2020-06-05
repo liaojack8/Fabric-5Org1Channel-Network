@@ -1,10 +1,10 @@
 {
-    "name":"vehiclesharing-network",
+    "name":"basic-network",
     "description":"This is a common connection profile. @see https://fabric-sdk-node.github.io/master/tutorial-network-config.html",
     "version":"1.0",
 
     "client":{
-        "organization":"Org1",
+        "organization":"DeslOrg1",
         "credentialStore":{
             "path":"/tmp/hfc-kvs",
             "cryptoStore":{
@@ -61,136 +61,136 @@
         "DeslOrg1":{
             "mspid":"DeslOrg1MSP",
             "peers":[
-                "peer0.org1.desl.com",
+                "peer0.org1.desl.com"
             ],
             "certificateAuthorities":[
                 "ca-org1"
             ],
             "adminPrivateKey": {
-                "path": "./crypto-config/peerOrganizations/org1.desl.com/users/Admin@org1.desl.com/msp/keystore/bb00369760c2062266de7790694bfd61d5cd3894e6eb3d87cd7f0f7cc49d006a_sk"
+                "path": "../basic-network/crypto-config/peerOrganizations/org1.desl.com/users/Admin@org1.desl.com/msp/keystore/dd0816c6b97befd5529dc962f3456398877bfa8ecc90469dbabad2c8ca52d605_sk"
             },
             "signedCert": {
-                "path": "./crypto-config/peerOrganizations/org1.desl.com/users/Admin@org1.desl.com/msp/signcerts/Admin@org1.desl.com-cert.pem"
+                "path": "../basic-network/crypto-config/peerOrganizations/org1.desl.com/users/Admin@org1.desl.com/msp/signcerts/Admin@org1.desl.com-cert.pem"
             }
         },
         "DeslOrg2":{
             "mspid":"DeslOrg2MSP",
             "peers":[
-                "peer0.org2.desl.com",
+                "peer0.org2.desl.com"
             ],
             "certificateAuthorities":[
                 "ca-org2"
             ],
             "adminPrivateKey": {
-                "path": "./crypto-config/peerOrganizations/org2.desl.com/users/Admin@org2.desl.com/msp/keystore/eeff799dae8dba6c66d8499ca9a112613b7a29a42375fdcb6377f46b35323e72_sk"
+                "path": "../basic-network/crypto-config/peerOrganizations/org2.desl.com/users/Admin@org2.desl.com/msp/keystore/c41c7e208e0141fe67b56e89a7edaf3039bbcc4ca9a02145577094a64c6123f4_sk"
             },
             "signedCert": {
-                "path": "./crypto-config/peerOrganizations/org2.desl.com/users/Admin@org2.desl.com/msp/signcerts/Admin@org2.desl.com-cert.pem"
+                "path": "../basic-network/crypto-config/peerOrganizations/org2.desl.com/users/Admin@org2.desl.com/msp/signcerts/Admin@org2.desl.com-cert.pem"
             }
         },
         "DeslOrg3":{
             "mspid":"DeslOrg3MSP",
             "peers":[
-                "peer0.org3.desl.com",
+                "peer0.org3.desl.com"
             ],
             "certificateAuthorities":[
                 "ca-org3"
             ],
             "adminPrivateKey": {
-                "path": "./crypto-config/peerOrganizations/org3.desl.com/users/Admin@org3.desl.com/msp/keystore/227a297b89cd33f8b8742e588f53a13bdd46fb07eed1ff880942908208622214_sk"
+                "path": "../basic-network/crypto-config/peerOrganizations/org3.desl.com/users/Admin@org3.desl.com/msp/keystore/57066e334245a9ad800a7d308963e6ef835b6100203dbfdaa5ca1b344733183d_sk"
             },
             "signedCert": {
-                "path": "./crypto-config/peerOrganizations/org3.desl.com/users/Admin@org3.desl.com/msp/signcerts/Admin@org3.desl.com-cert.pem"
+                "path": "../basic-network/crypto-config/peerOrganizations/org3.desl.com/users/Admin@org3.desl.com/msp/signcerts/Admin@org3.desl.com-cert.pem"
             }
         },
         "DeslOrg4":{
             "mspid":"DeslOrg4MSP",
             "peers":[
-                "peer0.org4.desl.com",
+                "peer0.org4.desl.com"
             ],
             "certificateAuthorities":[
                 "ca-org4"
             ],
             "adminPrivateKey": {
-                "path": "./crypto-config/peerOrganizations/org4.desl.com/users/Admin@org4.desl.com/msp/keystore/a3ada46b4f0d324af1d028a95ecce2cf73e121b070e0b251f197be9d6f9190b0_sk"
+                "path": "../basic-network/crypto-config/peerOrganizations/org4.desl.com/users/Admin@org4.desl.com/msp/keystore/5908b6796c4c41aa5b15334ae80796ad4c03bc73b21d5e69a390e304563fe328_sk"
             },
             "signedCert": {
-                "path": "./crypto-config/peerOrganizations/org4.desl.com/users/Admin@org4.desl.com/msp/signcerts/Admin@org4.desl.com-cert.pem"
+                "path": "../basic-network/crypto-config/peerOrganizations/org4.desl.com/users/Admin@org4.desl.com/msp/signcerts/Admin@org4.desl.com-cert.pem"
             }
         },
         "DeslOrg5":{
             "mspid":"DeslOrg5MSP",
             "peers":[
-                "peer0.org5.desl.com",
+                "peer0.org5.desl.com"
             ],
             "certificateAuthorities":[
                 "ca-org5"
             ],
             "adminPrivateKey": {
-                "path": "./crypto-config/peerOrganizations/org5.desl.com/users/Admin@org5.desl.com/msp/keystore/251e46000d014647f7ff56a2c9e1cc165713b68a5eb1c348f0bfd486b0414bb4_sk"
+                "path": "../basic-network/crypto-config/peerOrganizations/org5.desl.com/users/Admin@org5.desl.com/msp/keystore/b5811bb945a32f4049c01ff9bd7df113e073f162cd8fba3f1040ecc512088e18_sk"
             },
             "signedCert": {
-                "path": "./crypto-config/peerOrganizations/org5.desl.com/users/Admin@org5.desl.com/msp/signcerts/Admin@org5.desl.com-cert.pem"
+                "path": "../basic-network/crypto-config/peerOrganizations/org5.desl.com/users/Admin@org5.desl.com/msp/signcerts/Admin@org5.desl.com-cert.pem"
             }
         }
     },
 
     "orderers":{
         "orderer.desl.com":{
-            "url":"grpcs://localhost:7050",
+            "url":"grpc://localhost:7050",
             "grpcOptions":{
                 "ssl-target-name-override":"orderer.desl.com"
             },
             "tlsCACerts":{
-                "path":"./crypto-config/ordererOrganizations/desl.com/orderers/orderer.desl.com/msp/tlscacerts/tlsca.desl.com-cert.pem"
+                "path":"../basic-network/crypto-config/ordererOrganizations/desl.com/orderers/orderer.desl.com/msp/tlscacerts/tlsca.desl.com-cert.pem"
             }
         }
     },
 
     "peers":{
         "peer0.org1.desl.com":{
-            "url":"grpcs://localhost:7051",
+            "url":"grpc://localhost:7051",
             "grpcOptions":{
                 "ssl-target-name-override":"peer0.org1.desl.com"
             },
             "tlsCACerts":{
-                "path":"./crypto-config/peerOrganizations/org1.desl.com/peers/peer0.org1.desl.com/msp/tlscacerts/tlsca.org1.desl.com-cert.pem"
+                "path":"../basic-network/crypto-config/peerOrganizations/org1.desl.com/peers/peer0.org1.desl.com/msp/tlscacerts/tlsca.org1.desl.com-cert.pem"
             }
         },
         "peer0.org2.desl.com":{
-            "url":"grpcs://localhost:7051",
+            "url":"grpc://localhost:7051",
             "grpcOptions":{
                 "ssl-target-name-override":"peer0.org2.desl.com"
             },
             "tlsCACerts":{
-                "path":"./crypto-config/peerOrganizations/org2.desl.com/peers/peer0.org2.desl.com/msp/tlscacerts/tlsca.org2.desl.com-cert.pem"
+                "path":"../basic-network/crypto-config/peerOrganizations/org2.desl.com/peers/peer0.org2.desl.com/msp/tlscacerts/tlsca.org2.desl.com-cert.pem"
             }
         },
         "peer0.org3.desl.com":{
-            "url":"grpcs://localhost:7051",
+            "url":"grpc://localhost:7051",
             "grpcOptions":{
                 "ssl-target-name-override":"peer0.org3.desl.com"
             },
             "tlsCACerts":{
-                "path":"./crypto-config/peerOrganizations/org3.desl.com/peers/peer0.org3.desl.com/msp/tlscacerts/tlsca.org3.desl.com-cert.pem"
+                "path":"../basic-network/crypto-config/peerOrganizations/org3.desl.com/peers/peer0.org3.desl.com/msp/tlscacerts/tlsca.org3.desl.com-cert.pem"
             }
         },
         "peer0.org4.desl.com":{
-            "url":"grpcs://localhost:7051",
+            "url":"grpc://localhost:7051",
             "grpcOptions":{
                 "ssl-target-name-override":"peer0.org4.desl.com"
             },
             "tlsCACerts":{
-                "path":"./crypto-config/peerOrganizations/org4.desl.com/peers/peer0.org4.desl.com/msp/tlscacerts/tlsca.org4.desl.com-cert.pem"
+                "path":"../basic-network/crypto-config/peerOrganizations/org4.desl.com/peers/peer0.org4.desl.com/msp/tlscacerts/tlsca.org4.desl.com-cert.pem"
             }
         },
         "peer0.org5.desl.com":{
-            "url":"grpcs://localhost:7051",
+            "url":"grpcs://peer0.org5.desl.com:7051",
             "grpcOptions":{
                 "ssl-target-name-override":"peer0.org5.desl.com"
             },
             "tlsCACerts":{
-                "path":"./crypto-config/peerOrganizations/org5.desl.com/peers/peer0.org5.desl.com/msp/tlscacerts/tlsca.org5.desl.com-cert.pem"
+                "path":"../basic-network/crypto-config/peerOrganizations/org5.desl.com/peers/peer0.org5.desl.com/msp/tlscacerts/tlsca.org5.desl.com-cert.pem"
             }
         }
     }

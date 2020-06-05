@@ -5,37 +5,37 @@ class testContract extends Contract {
 
 
 
-   async queryMarks(ctx,studentId) {
+   async queryData(ctx,orcid) {
    
-    let marksAsBytes = await ctx.stub.getState(studentId); 
-    if (!marksAsBytes || marksAsBytes.toString().length <= 0) {
+    let dataAsBytes = await ctx.stub.getState(orcid); 
+    if (!dataAsBytes || dataAsBytes.toString().length <= 0) {
       throw new Error('Student with this Id does not exist: ');
        }
-      let marks=JSON.parse(marksAsBytes.toString());
+      let data=JSON.parse(dataAsBytes.toString());
       
-      return JSON.stringify(marks);
+      return JSON.stringify(data);
      }
 
-   async addMarks(ctx,studentId,subject1,subject2,subject3) {
+   async addData(ctx,orcid,subject1,subject2,subject3) {
    
-    let marks={
+    let data={
        subj1:subject1,
        subj2:subject2,
        subj3:subject3
        };
 
-    await ctx.stub.putState(studentId,Buffer.from(JSON.stringify(marks))); 
+    await ctx.stub.putState(orcid,Buffer.from(JSON.stringify(data))); 
     
-    console.log('Student Marks added To the ledger Succesfully..');
+    console.log('Student data added To the ledger Succesfully..');
     
   }
 
-   async deleteMarks(ctx,studentId) {
+   async deleteData(ctx,orcid) {
    
 
-    await ctx.stub.deleteState(studentId); 
+    await ctx.stub.deleteState(orcid); 
     
-    console.log('Student Marks deleted from the ledger Succesfully..');
+    console.log('Student data deleted from the ledger Succesfully..');
     
     }
 }

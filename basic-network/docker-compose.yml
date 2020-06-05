@@ -15,7 +15,7 @@ services:
       - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.desl.com
       - FABRIC_CA_SERVER_CA_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.org1.desl.com-cert.pem
-      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/129d4fcf34e009fae5bddb043fa3857cd2f2ae680afef2da906e9037820ed0b9_sk
+      - FABRIC_CA_SERVER_CA_KEYFILE=/etc/hyperledger/fabric-ca-server-config/5d874b8c82d37291acafb03da315f1deef364ab3818ef79d20441428496ac64f_sk
     ports:
       - "7054:7054"
     command: sh -c 'fabric-ca-server start -b admin:adminpw'
@@ -255,7 +255,7 @@ services:
     working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
     command: /bin/bash
     volumes:
-        - ./channelCode/:/etc/hyperledger/channelCode
+        - ./deployCC/:/etc/hyperledger/deployCC
         - ./config/:/etc/hyperledger/configtx
         - /var/run/:/host/var/run/
         - ./../MyChainCode/:/opt/gopath/src/github.com/

@@ -25,4 +25,4 @@ sleep ${FABRIC_START_TIMEOUT}
 sudo docker-compose -f ./docker-compose.yml up -d cli
 
 #Exec run.sh
-# sudo docker exec -it cli "./etc/hyperledger/channelCode/run.sh"
+# sudo docker exec -it cli "bash /etc/hyperledger/deployCC/deploy.sh"

@@ -3,6 +3,8 @@ CORE_PEER_LOCALMSPID=DeslOrg1MSP
 CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.desl.com/msp
 CORE_PEER_ADDRESS=peer0.org1.desl.com:7051
 peer channel create -o orderer.desl.com:7050 -c channelall -f /etc/hyperledger/configtx/channelall.tx
+#Insert data for testing
+peer chaincode invoke -o orderer.desl.com:7050 -C channelall -n mycc -c '{"function":"addMarks","Args":["Alice","68","84","89"]}'
 # Join peer0.org1.desl.com to the channel.
 CORE_PEER_LOCALMSPID=DeslOrg1MSP
 CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/msp/users/Admin@org1.desl.com/msp

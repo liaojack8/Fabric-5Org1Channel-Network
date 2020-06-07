@@ -23,11 +23,11 @@ var logger = new (winston.Logger)({transports: [new (winston.transports.Console)
 let arg = process.argv[2];
 switch (arg) {
     case 'query' : queryFindVehicle(process.argv[3]); break;
-    case 'add' : invokeAddVehicle(getRandomId(), 'FBC'); break;
+    case 'add' : invokeAddVehicle(process.argv[3], process.argv[4]); break;
     default: logger.error(`Please run command likes: 'node vstest4.js query [id]' or 'node vstest4.js add'`);
 }
 
-async function queryFindVehicle(vid) {
+async function queryFindVehicle(vid) { 
     if (vid == undefined) {
         logger.info('Please speficy a vehicle id for search.')
         return;
@@ -56,8 +56,8 @@ async function queryFindVehicle(vid) {
     logger.info(result == '' ? vid + ' not found' : result)
 }
 
-async function invokeAddVehicle(vehicleId, brand) {
-    logger.info('Begin to add vehicle [%s-%s]', vehicleId, brand);
+async function invokeAddVehicle(id,data) {
+    logger.info('Begin to add student data %s %s', id,data);
     const identityLabel = 'Admin@org1.desl.com';
     const wallet = await initUserWallet(identityLabel);
     const gateway = new Gateway();
@@ -95,10 +95,10 @@ async function invokeAddVehicle(vehicleId, brand) {
             //logger.info('EventHub error.');
         });
         
-        const response = await transaction.submit(vehicleId, brand);
+        const response = await transaction.submit(id,data);
         const succ = (eventFired == 1);
         if (succ) {
-            logger.info('A new vehicle [%s] was created. Response: %s', vehicleId, response.toString());
+            logger.info('A new data %s was created. Response: %s %s', id,data, response.toString());
         }    
         else {
             logger.error('Adding vehicle got failed.');
@@ -112,7 +112,6 @@ async function invokeAddVehicle(vehicleId, brand) {
 		gateway.disconnect();
 		logger.info('Gateway disconnected.');
 	}
-
 }
 
 async function getFirstEventHubForOrg(network, orgMSP) {

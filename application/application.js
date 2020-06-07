@@ -22,12 +22,12 @@ var logger = new (winston.Logger)({transports: [new (winston.transports.Console)
 
 let arg = process.argv[2];
 switch (arg) {
-    case 'query' : queryFindVehicle(process.argv[3]); break;
-    case 'add' : invokeAddVehicle(process.argv[3], process.argv[4]); break;
+    case 'query' : queryFind(process.argv[3]); break;
+    case 'add' : invokeAdd(process.argv[3], process.argv[4]); break;
     default: logger.error(`Please run command likes: 'node vstest4.js query [id]' or 'node vstest4.js add'`);
 }
 
-async function queryFindVehicle(vid) { 
+async function queryFind(vid) { 
     if (vid == undefined) {
         logger.info('Please speficy a vehicle id for search.')
         return;
@@ -54,9 +54,10 @@ async function queryFindVehicle(vid) {
     
     result = Buffer.from(result).toString()
     logger.info(result == '' ? vid + ' not found' : result)
+    return result;
 }
 
-async function invokeAddVehicle(id,data) {
+async function invokeAdd(id,data) {
     logger.info('Begin to add student data %s %s', id,data);
     const identityLabel = 'Admin@org1.desl.com';
     const wallet = await initUserWallet(identityLabel);
@@ -75,7 +76,7 @@ async function invokeAddVehicle(id,data) {
     try {
         const network = await gateway.getNetwork('channelall');
         const contract = await network.getContract('mycc');
-        const transaction = contract.createTransaction('addMarks');
+        const transaction = contract.createTransaction('addMarks').Submit([id,data]);
         const transactionId = transaction.getTransactionID().getTransactionID();
     
         logger.info('Create a transaction ID: ', transactionId);
@@ -101,7 +102,7 @@ async function invokeAddVehicle(id,data) {
             logger.info('A new data %s was created. Response: %s %s', id,data, response.toString());
         }    
         else {
-            logger.error('Adding vehicle got failed.');
+            logger.error('Adding data got failed.');
         }
             
     } 
@@ -111,38 +112,12 @@ async function invokeAddVehicle(id,data) {
     finally {
 		gateway.disconnect();
 		logger.info('Gateway disconnected.');
+        if (succ){
+            return 'A new data %s was created. Response: %s %s', id,data, response.toString()
+        }
+        else{
+            return 'failed'
+        }
 	}
 }
-
-async function getFirstEventHubForOrg(network, orgMSP) {
-    const channel = network.getChannel();
-    const orgPeer = channel.getPeersForOrg(orgMSP)[0];
-	return channel.getChannelEventHub(orgPeer.getName());
-}
-
-function getRandomId() {
-    return Math.random().toString().substring(2).substring(0,8);
-}
-
-async function initUserWallet(identityLabel) {
-    // Hardcode crypto materials of user alice@sharing.example.com.
-    const keyPath = path.join(__dirname, "../basic-network/crypto-config/peerOrganizations/org1.desl.com/users/Admin@org1.desl.com/msp/keystore/dd0816c6b97befd5529dc962f3456398877bfa8ecc90469dbabad2c8ca52d605_sk");
-    const keyPEM = Buffer.from(fs.readFileSync(keyPath)).toString();
-    const certPath = path.join(__dirname, "../basic-network/crypto-config/peerOrganizations/org1.desl.com/users/Admin@org1.desl.com/msp/signcerts/Admin@org1.desl.com-cert.pem");
-    const certPEM = Buffer.from(fs.readFileSync(certPath)).toString();
-
-    const mspId = 'DeslOrg1MSP';
-    const identity = X509WalletMixin.createIdentity(mspId, certPEM, keyPEM)
-
-    //const wallet = new FileSystemWallet('/tmp/wallet/alice.sharing');
-    const wallet = new InMemoryWallet();
-    await wallet.import(identityLabel, identity);
-
-    if (await wallet.exists(identityLabel)) {
-        logger.info('Identity %s exists.', identityLabel);
-    }
-    else {
-        logger.error('Identity %s does not exist.', identityLabel);
-    }
-    return wallet;
-}
+module.export = {queryFind,invokeAdd}

@@ -256,6 +256,7 @@ services:
     command: /bin/bash
     volumes:
         - ./deployCC/:/etc/hyperledger/deployCC
+        - ./scriptForTest/:/etc/hyperledger/script
         - ./config/:/etc/hyperledger/configtx
         - /var/run/:/host/var/run/
         - ./../MyChainCode/:/opt/gopath/src/github.com/

@@ -24,5 +24,7 @@ sleep ${FABRIC_START_TIMEOUT}
 #Creating CLI Container
 sudo docker-compose -f ./docker-compose.yml up -d cli
 
-#Exec run.sh
-# sudo docker exec -it cli "bash /etc/hyperledger/deployCC/deploy.sh"
+# sudo docker exec -it cli bash
+# bash /etc/hyperledger/deployCC/deploy.sh
+# bash /etc/hyperledger/script/genData.sh
+# bash /etc/hyperledger/script/query.sh

@@ -23,7 +23,7 @@ var logger = new (winston.Logger)({transports: [new (winston.transports.Console)
 let arg = process.argv[2];
 switch (arg) {
     case 'query' : queryFindVehicle(process.argv[3]); break;
-    case 'add' : invokeAddVehicle(process.argv[3], process.argv[4]); break;
+    case 'add' : invokeAddVehicle(process.argv[3],process.argv[4],process.argv[5],process.argv[6]); break;
     default: logger.error(`Please run command likes: 'node vstest4.js query [id]' or 'node vstest4.js add'`);
 }
 
@@ -56,8 +56,8 @@ async function queryFindVehicle(vid) {
     logger.info(result == '' ? vid + ' not found' : result)
 }
 
-async function invokeAddVehicle(id,data) {
-    logger.info('Begin to add student data %s %s', id,data);
+async function invokeAddVehicle(data1,data2,data3,data4) {
+    logger.info('Begin to add student data %s %s', data1);
     const identityLabel = 'Admin@org1.desl.com';
     const wallet = await initUserWallet(identityLabel);
     const gateway = new Gateway();
@@ -76,6 +76,7 @@ async function invokeAddVehicle(id,data) {
         const network = await gateway.getNetwork('channelall');
         const contract = await network.getContract('mycc');
         const transaction = contract.createTransaction('addMarks');
+        // const transactionSubmit = await transaction.submit(data);
         const transactionId = transaction.getTransactionID().getTransactionID();
     
         logger.info('Create a transaction ID: ', transactionId);
@@ -95,7 +96,7 @@ async function invokeAddVehicle(id,data) {
             //logger.info('EventHub error.');
         });
         
-        const response = await transaction.submit(id,data);
+        const response = await transaction.submit(data1,data2,data3,data4);
         const succ = (eventFired == 1);
         if (succ) {
             logger.info('A new data %s was created. Response: %s %s', id,data, response.toString());

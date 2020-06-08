@@ -2,19 +2,20 @@
 
 ## How to use?
 
-### Start
+### Start(Create 4 tabs in terminal)
 ```
 //at cli-1
 git clone
-start.sh
+cd ./basic-network
+bash start.sh
 ```
 ### Init
 ```
-//switch to cli-2
+//switch to cli-2 (Deploy Chaincode)
 sudo docker exec -it cli bash
 bash etc/hyperledger/deployCC/deploy.sh
+//switch to cli-3 (Quick Demo)
 bash etc/hyperledger/script/genData.sh
-//switch to cli-3
 bash etc/hyperledger/script/query.sh
 ```
 ### Enable RestfulAPI
@@ -24,5 +25,14 @@ node rest.js
 ```
 ### Stop
 ```
-stop.sh
+bash stop.sh
+```
+#### Extra
+To clean all data in the network
+```
+bash teardown.sh
+```
+To generate new crypto-config by cryptogen
+```
+bash generate.sh
 ```
